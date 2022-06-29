@@ -12,12 +12,12 @@ You can connect to your server with any MongoDB client with those credentials:
     Port: 27017
     Auth type: SCRAM-SHA-1
     Login: admin
-    Password: [APP_PASSWORD]
+    Password: [SOFTWARE_PASSWORD] (set in env var)
     Database: admin
 
 Connection URI for MongoDB Compass: 
 
-    mongodb://admin:[APP_PASSWORD]@[CI_CD_DOMAIN]:27017?authMechanism=SCRAM-SHA-1&authSource=admin
+    mongodb://admin:[SOFTWARE_PASSWORD]@[CI_CD_DOMAIN]:27017?authMechanism=SCRAM-SHA-1&authSource=admin
 
 You can download & install MongoDB Compass from this link:
 https://www.mongodb.com/try/download/compass
@@ -27,12 +27,12 @@ You can also connect to mongodb through mongo-express Web UI:
 
     https://[CI_CD_DOMAIN]/
     Login: admin
-    Password: [APP_PASSWORD]
+    Password: [SOFTWARE_PASSWORD]
 
 You can also connect to mongodb with the mongo cli tool like this:
 
     apt install mongodb-clients;
-    mongo [CI_CD_DOMAIN]:27017/admin -u admin -p [APP_PASSWORD];
+    mongo [CI_CD_DOMAIN]:27017/admin -u admin -p [SOFTWARE_PASSWORD];
 
 
 To connect from node.js you'll need the package mongodb then you can connect like this:
@@ -42,7 +42,7 @@ To connect from node.js you'll need the package mongodb then you can connect li
     var assert = require('assert');
 
     // Connection URL
-    var url = 'mongodb://admin:[APP_PASSWORD]@[CI_CD_DOMAIN]:27017?authMechanism=SCRAM-SHA-1&authSource=admin';
+    var url = 'mongodb://admin:[SOFTWARE_PASSWORD]@[CI_CD_DOMAIN]:27017?authMechanism=SCRAM-SHA-1&authSource=admin';
 
     // Use connect method to connect to the Server
     MongoClient.connect(url, function(err, db) {
