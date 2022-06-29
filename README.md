@@ -8,8 +8,8 @@ Example CI/CD pipeline showing how to deploy a MongoDB instance to elestio.
 
 You can connect to your server with any MongoDB client with those credentials:
 
-    Host: [DOMAIN]
-    Port: 17271
+    Host: [CI_CD_DOMAIN]
+    Port: 27017
     Auth type: SCRAM-SHA-1
     Login: admin
     Password: [APP_PASSWORD]
@@ -17,7 +17,7 @@ You can connect to your server with any MongoDB client with those credentials:
 
 Connection URI for MongoDB Compass: 
 
-    mongodb://admin:[APP_PASSWORD]@[DOMAIN]:17271?authMechanism=SCRAM-SHA-1&authSource=admin
+    mongodb://admin:[APP_PASSWORD]@[CI_CD_DOMAIN]:27017?authMechanism=SCRAM-SHA-1&authSource=admin
 
 You can download & install MongoDB Compass from this link:
 https://www.mongodb.com/try/download/compass
@@ -25,14 +25,14 @@ https://www.mongodb.com/try/download/compass
 
 You can also connect to mongodb through mongo-express Web UI:
 
-    https://[DOMAIN]:17290/
+    https://[CI_CD_DOMAIN]/
     Login: admin
     Password: [APP_PASSWORD]
 
 You can also connect to mongodb with the mongo cli tool like this:
 
     apt install mongodb-clients;
-    mongo [DOMAIN]:17271/admin -u admin -p [APP_PASSWORD];
+    mongo [CI_CD_DOMAIN]:27017/admin -u admin -p [APP_PASSWORD];
 
 
 To connect from node.js you'll need the package mongodb then you can connect like this:
@@ -42,7 +42,7 @@ To connect from node.js you'll need the package mongodb then you can connect li
     var assert = require('assert');
 
     // Connection URL
-    var url = 'mongodb://admin:[APP_PASSWORD]@[DOMAIN]:17271?authMechanism=SCRAM-SHA-1&authSource=admin';
+    var url = 'mongodb://admin:[APP_PASSWORD]@[CI_CD_DOMAIN]:27017?authMechanism=SCRAM-SHA-1&authSource=admin';
 
     // Use connect method to connect to the Server
     MongoClient.connect(url, function(err, db) {
