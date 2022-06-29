@@ -26,7 +26,7 @@ https://www.mongodb.com/try/download/compass
 You can also connect to mongodb through mongo-express Web UI:
 
     https://[DOMAIN]:17290/
-    Login: root
+    Login: admin
     Password: [APP_PASSWORD]
 
 You can also connect to mongodb with the mongo cli tool like this:
