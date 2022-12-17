@@ -16,4 +16,8 @@ mongosh --host mongo:27017 <<EOF
     ]
   };
   rs.initiate(cfg);
+
+  use admin
+  db.createUser( { user: "admin", pwd: "[SOFTWARE_PASSWORD]", 
+  roles: [ { role: "clusterAdmin", db: "admin" }, { role: "readAnyDatabase", db: "admin" }, "readWrite"] }, { w: "majority" , wtimeout: 5000 } )
 EOF
