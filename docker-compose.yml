@@ -4,6 +4,8 @@ services:
   mongo:
     image: mongo:${SOFTWARE_VERSION_TAG}
     restart: always
+    dns:
+      - 8.8.8.8
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "Cluster0" ]
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
