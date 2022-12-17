@@ -10,7 +10,7 @@ mongosh --host mongo:27017 <<EOF
     "members": [
       {
         "_id": 0,
-        "host": "mongo:27017",
+        "host": "INSTANCE_DOMAIN:17271",
         "priority": 2
       }
     ]
