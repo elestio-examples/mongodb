@@ -12,7 +12,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${SOFTWARE_PASSWORD}
     volumes:
       - ./data:/data/db
-      - ./key:/auth/key
+      - ./auth/key:/auth/key
     ports:
       - '17271:27017'
 
