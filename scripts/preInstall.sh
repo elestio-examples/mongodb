@@ -18,6 +18,7 @@ docker-compose up -d;
 
 #launch mongosetup a second time to ensure it's applied
 docker-compose up mongosetup;
-docker-compose up mongosetup
+docker-compose up mongosetup;
 
+echo "Waiting ...";
 sleep 150s;
