@@ -1,6 +1,8 @@
 #set env vars
 set -o allexport; source .env; set +o allexport;
 
+docker-compose up -d;
+
 #launch mongosetup a second time to ensure it's applied
 docker-compose up mongosetup;
 docker-compose up mongosetup

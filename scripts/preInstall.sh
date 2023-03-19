@@ -13,3 +13,4 @@ echo $(openssl rand -hex 20) > ./auth/key;
 echo "set perm on Key file"
 chmod 600 ./auth/key 
 
+docker-compose up -d;
