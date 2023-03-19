@@ -8,7 +8,7 @@ sed -i "s/SOFTWARE_PASSWORD/$SOFTWARE_PASSWORD/g" ./scripts/mongo_setup.sh
 #create key file (for cluster and single node cluster)
 mkdir -p ./auth;
 echo $(openssl rand -hex 20) > ./auth/key;
-
+chown 400 ./auth/key 
 
 #activate the single node cluster and create admin account with mongosetup
 docker-compose up -d;
