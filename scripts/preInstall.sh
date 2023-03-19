@@ -12,11 +12,9 @@ echo $(openssl rand -hex 20) > ./auth/key;
 
 #activate the single node cluster and create admin account with mongosetup
 docker-compose up -d;
-sleep 20;
 
 #launch mongosetup a second time to ensure it's applied
 docker-compose up mongosetup;
-sleep 20;
 docker-compose up mongosetup
 
 #add auth
