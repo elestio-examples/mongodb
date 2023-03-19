@@ -6,8 +6,11 @@ sed -i "s/INSTANCE_DOMAIN/$DOMAIN/g" ./scripts/mongo_setup.sh
 sed -i "s/SOFTWARE_PASSWORD/$SOFTWARE_PASSWORD/g" ./scripts/mongo_setup.sh
 
 #create key file (for cluster and single node cluster)
+echo "Create Key file"
 mkdir -p ./auth;
 echo $(openssl rand -hex 20) > ./auth/key;
+
+echo "set perm on Key file"
 chown 400 ./auth/key 
 
 #activate the single node cluster and create admin account with mongosetup
@@ -18,6 +21,7 @@ docker-compose up mongosetup;
 docker-compose up mongosetup
 
 #add auth
+echo "set auth activated"
 sed -i 's|"--bind_ip_all"|"--auth", "--keyFile", "/auth/key", "--bind_ip_all"|g' docker-compose.yml
 
 #stop the stack, will be restarted later with the auth added before
