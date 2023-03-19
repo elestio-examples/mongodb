@@ -16,7 +16,7 @@ sleep 20;
 
 #launch mongosetup a second time to ensure it's applied
 docker-compose up mongosetup;
-sleep 10;
+sleep 20;
 docker-compose up mongosetup
 
 #add auth
