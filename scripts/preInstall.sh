@@ -11,7 +11,7 @@ mkdir -p ./auth;
 echo $(openssl rand -hex 20) > ./auth/key;
 
 echo "set perm on Key file"
-chown 400 ./auth/key 
+chmod 600 ./auth/key 
 
 #activate the single node cluster and create admin account with mongosetup
 docker-compose up -d;
