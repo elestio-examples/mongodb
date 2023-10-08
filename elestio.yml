@@ -6,7 +6,7 @@ ports:
     targetIP: "172.17.0.1"
     public: true
     path: "/"
-    isAuth: true
+    isAuth: false
     login: "admin"
     password: "random_password"
   - protocol: "TCP"
@@ -40,4 +40,6 @@ lifeCycleConfig:
   postRestoreCommand: "./scripts/postRestore.sh"
 webUI:
   - url: "https://[CI_CD_DOMAIN]"
-    label: "Mongo Express"  
+    label: "Mongo Express"
+    login: "admin"
+    password: "[SOFTWARE_PASSWORD]"

@@ -1,12 +1,11 @@
-version: '3'
+version: "3"
 services:
-
   mongo:
     image: mongo:${SOFTWARE_VERSION_TAG}
     restart: always
     dns:
       - 8.8.8.8
-    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "Cluster0" ]
+    entrypoint: ["/usr/bin/mongod", "--bind_ip_all", "--replSet", "Cluster0"]
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: ${SOFTWARE_PASSWORD}
@@ -14,14 +13,16 @@ services:
       - ./data:/data/db
       - ./auth/key:/auth/key
     ports:
-      - '17271:27017'
+      - "17271:27017"
 
   mongo-express:
     image: mongo-express
     restart: always
     ports:
-      - '172.17.0.1:8081:8081'
+      - "172.17.0.1:8081:8081"
     environment:
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: ${SOFTWARE_PASSWORD}
       ME_CONFIG_MONGODB_ADMINUSERNAME: admin
       ME_CONFIG_MONGODB_ADMINPASSWORD: ${SOFTWARE_PASSWORD}
       ME_CONFIG_MONGODB_URL: mongodb://admin:${SOFTWARE_PASSWORD}@mongo:27017/
@@ -36,4 +37,4 @@ services:
     volumes:
       - ./scripts:/scripts
     restart: "no"
-    entrypoint: [ "bash", "/scripts/mongo_setup.sh"]
+    entrypoint: ["bash", "/scripts/mongo_setup.sh"]
