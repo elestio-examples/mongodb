@@ -2,6 +2,7 @@ version: "3"
 services:
   mongo:
     image: mongo:${SOFTWARE_VERSION_TAG}
+    container_name: mongo
     restart: always
     dns:
       - 8.8.8.8
@@ -17,6 +18,7 @@ services:
 
   mongo-express:
     image: mongo-express
+    container_name: mongo-express
     restart: always
     ports:
       - "172.17.0.1:8081:8081"
