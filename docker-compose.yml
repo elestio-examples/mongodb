@@ -27,7 +27,7 @@ services:
       ME_CONFIG_BASICAUTH_PASSWORD: ${SOFTWARE_PASSWORD}
       ME_CONFIG_MONGODB_ADMINUSERNAME: admin
       ME_CONFIG_MONGODB_ADMINPASSWORD: ${SOFTWARE_PASSWORD}
-      ME_CONFIG_MONGODB_URL: mongodb://admin:${SOFTWARE_PASSWORD}@mongo:27017/
+      ME_CONFIG_MONGODB_URL: mongodb://admin:${SOFTWARE_PASSWORD}@mongo:27017/?directConnection=true&appName=mongosh+2.0.1
     depends_on:
       - mongo
       - mongosetup
